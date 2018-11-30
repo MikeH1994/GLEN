@@ -8,9 +8,12 @@ class Camera;
 
 class SimpleRayTracer{
 protected:
+    int _threadIndex;
     std::shared_ptr<World> _world;
+    std::shared_ptr<Camera> _camera;
+    Settings settings;
 public:
-    SimpleRayTracer(Settings &settings, int numberOfThreads, int threadIndex);
+    SimpleRayTracer(std::shared_ptr<World> world, std::shared_ptr<Camera> camera, Settings settings, int threadIndex);
     ~SimpleRayTracer();
 };
 
