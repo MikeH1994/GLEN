@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "Settings.h"
-
+#include "Vec3d.h"
 
 
 class Camera{
@@ -11,20 +11,25 @@ protected:
     Settings _settings;
     double _fovX;
     double _fovY;
-    int _resolutionX;
-    int _resolutionY;
-    Eigen::Vector3d _position;
-    Eigen::Vector3d _pointTowardsPosition;
+    unsigned int _resolutionX;
+    unsigned int _resolutionY;
+    Vec3d _position;
+    Vec3d _pointTowardsPosition;
+    Vec3d _direction;
+    std::vector<std::vector<std::shared_ptr<VecXd>>> _pixelIntensities;
+    std::mutex _threadLock;
 public:
     Camera(Settings settings);
 
 
-    //getter/setter methods
+    //getter methods
 
     void getFOV(double &fovX,double &fovY);
     void getResolution(int &resolutionX, int &resolutionY);
-    Eigen::Vector3d getPosition();
-    Eigen::Vector3d getPointDirection();
+    void getDirection(unsigned int x, unsigned int y, Vec3d &dst);
+
+    //setter methods
+    void setPixelIntensity(unsigned int x, unsigned int y, std::shared_ptr<VecXd> intensity);
 };
 
 #endif // CAMERA_H

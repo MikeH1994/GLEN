@@ -4,10 +4,12 @@
 #include <vector>
 #include <iostream>
 #include <memory>
-
-#include <Eigen/Dense>
+#include <mutex>
+#include <thread>
+#include <math.h>
 
 #define EPS_ 1E-10
+#define PI_ 3.1415926535
 
 
 #endif // STDAFX_H

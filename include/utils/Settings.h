@@ -5,8 +5,8 @@ class Settings{
 public:
     double _cameraFOVx;
     double _cameraFOVy;
-    int _cameraResolutionX;
-    int _cameraResolutionY;
+    unsigned int _cameraResolutionX;
+    unsigned int _cameraResolutionY;
 
     double _cameraPositionX;
     double _cameraPositionY;
@@ -18,14 +18,16 @@ public:
 
     double _wavelengthLowerBound;
     double _wavelengthUpperBound;
-    int _wavelengthBins;
-    int _angleBins;
+    unsigned int _wavelengthBins;
+    unsigned int _angleBins;
 
     double _worldDimensionsX;
     double _worldDimensionsY;
     double _worldDimensionsZ;
-    int _boundingBoxDivisions;
+    unsigned int _boundingBoxDivisions;
 
+    unsigned int _numberOfAngles;
+    unsigned int _maxNumberOfReflections;
 
 public:
     Settings();

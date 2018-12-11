@@ -2,6 +2,8 @@
 #define WORLD_H
 
 #include "Triangle.h"
+#include "BRDF.h"
+
 
 class World{
     double _worldDimensionsX;
@@ -9,14 +11,16 @@ class World{
     double _worldDimensionsZ;
     int _boundingBoxDivisions;
 
-    std::vector<Triangle> _objects;
-    std::vector<std::vector<Triangle>> _boundingBoxes;
 
     void fillBoundingBox();
 public:
     World(std::vector<Triangle> objects);
     World(World& world);
     std::shared_ptr<World> clone();
+
+    std::vector<BRDF> _BDFs;
+    std::vector<Triangle> _objects;
+    std::vector<std::vector<Triangle>> _boundingBoxes;
 };
 
 #endif // WORLD_H
